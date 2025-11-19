@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // URL-ul backend-ului tau Python (de exemplu, o aplicație Flask)
-const API_URL = 'http://localhost:5000/api/login'; 
+const API_URL = 'http://localhost:8000/api/login'; 
 
 function Login() {
   // 1. Starea componentelor: gestioneaza datele introduse de utilizator si mesajele
@@ -35,7 +35,7 @@ function Login() {
         // Aici ar trebui sa salvezi token-ul de autentificare in localStorage/cookies si sa redirectionezi
         console.log("Token:", data.token); 
       } else {
-        // Autentificare eșuată (ex: 401 Unauthorized)
+        // Autentificare esuata (ex: 401 Unauthorized)
         setMessage(`Eroare la login: ${data.message || 'Credențiale invalide.'}`);
       }
     } catch (error) {

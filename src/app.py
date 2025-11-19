@@ -23,7 +23,6 @@ def get_db_connection():
         print(f"Eroare SQL la conectare: {ex}")
         return None
 
-# --- Endpoint-ul de Login (http://localhost:5000/api/login) ---
 @app.route('/api/login', methods=['POST'])
 def login():
     # 1. Extrage datele trimise de React
@@ -42,7 +41,7 @@ def login():
         cursor = cnxn.cursor()
         
         # 2. Interogare: Extrage inregistrarea in functie de Numele de utilizator SI Parola
-        sql_query = "SELECT Nume FROM Clienti WHERE Username = ? AND Parola = ?"
+        sql_query = "SELECT Nume FROM Clienti WHERE username = ? AND parola = ?"
         
         cursor.execute(sql_query, (username, password))
         
@@ -67,5 +66,5 @@ def login():
             cnxn.close()
 
 if __name__ == '__main__':
-    print("Serverul Flask ruleaza pe http://localhost:5000")
-    app.run(debug=True, port=5000)
+    print("Serverul Flask ruleaza pe http://localhost:8000")
+    app.run(debug=True, port=8000)
